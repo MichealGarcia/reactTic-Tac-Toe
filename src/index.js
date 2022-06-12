@@ -6,19 +6,30 @@ import './index.css';
 
 // Create class compnent
 // Utilize state to "remember" it got clicked.
-class Square extends React.Component {
-  // Controlled compnents, Board has control over these
-  render() {
-    return (
-      <button
-        className="square"
-        onClick={() => this.props.onClick()}
-      >
-        {this.props.value}
-      </button>
-    );
-  }
-}
+// We are going to replace the Square class with
+// a function.
+
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  )
+};
+
+// class Square extends React.Component {
+//   // Controlled compnents, Board has control over these
+//   render() {
+//     return (
+//       <button
+//         className="square"
+//         onClick={() => this.props.onClick()}
+//       >
+//         {this.props.value}
+//       </button>
+//     );
+//   }
+// }
 
 
 
@@ -27,6 +38,7 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      xIsNext: true,
     };
   }
 
