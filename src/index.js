@@ -68,7 +68,8 @@ class Board extends React.Component {
   }
 
   render() {
-    const status = 'Next player: X';
+    // ternary, if this.stae.xIsNext is X or O then return it as the current player.
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
 
     return (
       <div>
