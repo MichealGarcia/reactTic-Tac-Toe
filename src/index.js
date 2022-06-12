@@ -21,7 +21,6 @@ class Square extends React.Component {
 }
 
 
-// I need to create test for testing test
 
 class Board extends React.Component {
   constructor(props) {
