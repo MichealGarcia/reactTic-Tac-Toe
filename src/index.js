@@ -38,15 +38,24 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      // everytime a player moves, xIsNext will flip boolean values.
+      // to determine who goes next.
+
       xIsNext: true,
     };
   }
 
+
+  // Used to handle changes on clicks. 
+  // needs to change xIsNext value on clicks.
   handleClick(i) {
     // making the array immutable, by copying and editing another
     const squares = this.state.squares.slice();
-    squares[i] = 'X';
-    this.setState({ squares: squares });
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext,
+    });
   }
 
   renderSquare(i) {
