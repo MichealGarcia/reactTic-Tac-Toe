@@ -75,7 +75,9 @@ class Board extends React.Component {
   // X or 0 won the game.
   render() {
     const winner = calculateWinner(this.state.squares);
+    // initialize status to check who the winner is.
     let status;
+    // if there is a winner, claculated by calculateWinner, then declare winner, else next player goes
     if (winner) {
       status = 'Winner: ' + winner;
     } else {
